@@ -1,0 +1,538 @@
+/* =====================================================
+   Personal Homepage - Homework 1
+   Palette (5 colors):
+     Blue  #0039a6   Amber  #f5b301
+     Ink   #0f172a   Tint   #eef2fa   White #ffffff
+   ===================================================== */
+
+:root {
+  --blue: #0039a6;
+  --amber: #f5b301;
+  --ink: #0f172a;
+  --tint: #eef2fa;
+  --white: #ffffff;
+  --muted: rgba(15, 23, 42, 0.74);
+  --line: rgba(0, 57, 166, 0.18);
+}
+
+/* ---------- Base / element selectors ---------- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--ink);
+  background-color: var(--white);
+}
+
+h1,
+h2,
+h3 {
+  margin: 0 0 1rem;
+  font-family: Palatino, "Palatino Linotype", "Book Antiqua", "URW Palladio L", Georgia, serif;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+h3 {
+  font-size: 1.3rem;
+  line-height: 1.3;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  margin: 0 0 1rem;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a:focus {
+  outline: 3px solid var(--blue);
+  outline-offset: 3px;
+}
+
+/* ---------- Layout helpers ---------- */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: var(--white);
+  color: var(--ink);
+  z-index: 100;
+}
+
+.skip-link:focus {
+  left: 0.5rem;
+}
+
+/* ---------- Header & navigation ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: var(--white);
+  border-bottom: 1px solid var(--line);
+}
+
+.header-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 0.9rem;
+  padding-bottom: 0.9rem;
+}
+
+.brand {
+  font-family: Palatino, "Palatino Linotype", "Book Antiqua", "URW Palladio L", Georgia, serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--blue);
+  text-decoration: none;
+}
+
+.nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-list a {
+  padding: 0.25rem 0;
+  border-bottom: 3px solid transparent;
+  font-weight: 500;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.nav-list a:hover {
+  border-bottom-color: var(--amber);
+}
+
+.nav-list .btn-portal {
+  padding: 0.5rem 1.25rem;
+  border: 2px solid var(--blue);
+  border-radius: 8px;
+  color: var(--blue);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.nav-list .btn-portal:hover {
+  background-color: var(--blue);
+  border-color: var(--blue);
+  color: var(--white);
+}
+
+/* ---------- Hero / profile ---------- */
+#home {
+  display: flex;
+  align-items: center;
+  min-height: 80vh;
+  padding: 5rem 0;
+  background-color: var(--blue);
+  color: var(--white);
+}
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  width: 100%;
+}
+
+.hero-text {
+  max-width: 38rem;
+}
+
+#home h1 {
+  margin-bottom: 1.5rem;
+  font-size: 3.6rem;
+}
+
+.hero-name {
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
+}
+
+.tagline {
+  margin-bottom: 2.25rem;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.profile-photo {
+  justify-self: center;
+  width: 300px;
+  height: 380px;
+  border-radius: 150px 150px 0 0;
+  box-shadow: 16px 16px 0 var(--amber);
+  object-fit: cover;
+  object-position: 45% 30%;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.95rem 2.25rem;
+  border-radius: 10px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background-color: var(--amber);
+  color: var(--ink);
+}
+
+.btn-primary:hover {
+  background-color: var(--white);
+}
+
+#home a:focus {
+  outline-color: var(--white);
+}
+
+/* ---------- Sections ---------- */
+.section {
+  padding: 5.5rem 0;
+}
+
+.section-white {
+  background-color: var(--white);
+}
+
+.section-gray {
+  background-color: var(--tint);
+}
+
+.section-title {
+  margin-bottom: 1rem;
+  font-size: 2.6rem;
+}
+
+.section-title::before {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 6px;
+  margin-bottom: 1.1rem;
+  border-radius: 3px;
+  background-color: var(--amber);
+}
+
+.section-intro {
+  max-width: 40rem;
+  margin: 0 0 2.5rem;
+  font-size: 1.1rem;
+  color: var(--muted);
+}
+
+/* ---------- About ---------- */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 3.5rem;
+  align-items: start;
+  margin-top: 2.5rem;
+}
+
+.about-photo {
+  width: 100%;
+  border-radius: 14px;
+}
+
+.about-text {
+  max-width: 38rem;
+}
+
+.about-text h3 {
+  margin-top: 1.75rem;
+}
+
+.plain-list {
+  margin: 0 0 1rem;
+  padding: 0;
+  list-style: none;
+}
+
+.plain-list li {
+  margin-bottom: 0.5rem;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* ---------- Cards ---------- */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.hobby-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.card {
+  padding: 1.75rem;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background-color: var(--white);
+}
+
+.section-white .card {
+  background-color: var(--tint);
+}
+
+.status,
+.tag {
+  display: inline-block;
+  padding: 0.1rem 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--blue);
+}
+
+.card-link {
+  font-weight: 600;
+  color: var(--blue);
+}
+
+/* Coursework + research cards */
+.course-name {
+  margin-bottom: 0.75rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--blue);
+}
+
+.publication {
+  margin-bottom: 1.5rem;
+  border-left: 8px solid var(--amber);
+}
+
+.publication h3 {
+  margin-top: 0.75rem;
+  font-size: 1.55rem;
+}
+
+/* Project cards */
+.project-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.results {
+  margin: 0 0 1.25rem;
+  padding-left: 1.25rem;
+}
+
+.results li {
+  margin-bottom: 0.35rem;
+}
+
+.project-card .tag-list {
+  margin-top: auto;
+}
+
+/* Interest cards */
+.interest-card {
+  padding: 0 0 1.75rem;
+  overflow: hidden;
+}
+
+.interest-card img {
+  width: 100%;
+  height: 240px;
+  margin-bottom: 1.5rem;
+  object-fit: cover;
+}
+
+.interest-card h3,
+.interest-card p {
+  padding: 0 1.75rem;
+}
+
+/* Contact cards */
+.contact-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.contact-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.contact-card:hover,
+.contact-card:focus {
+  border-color: var(--blue);
+}
+
+.contact-card p {
+  margin-bottom: 1.25rem;
+  color: var(--muted);
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  margin-bottom: 1.25rem;
+  border-radius: 14px;
+  background-color: var(--tint);
+  font-size: 1.7rem;
+}
+
+.arrow {
+  margin-top: auto;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--blue);
+}
+
+.contact-card:hover .arrow {
+  color: var(--ink);
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  padding: 2rem 0;
+  background-color: var(--ink);
+  color: var(--white);
+}
+
+.site-footer p {
+  margin-bottom: 0.25rem;
+}
+
+.site-footer a {
+  color: var(--white);
+}
+
+.site-footer a:focus {
+  outline-color: var(--white);
+}
+
+/* ---------- Tablet ---------- */
+@media (max-width: 900px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contact-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .about-text {
+    max-width: none;
+  }
+
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .profile-photo {
+    order: -1;
+    justify-self: start;
+    width: 240px;
+    height: 300px;
+    border-radius: 120px 120px 0 0;
+    box-shadow: 12px 12px 0 var(--amber);
+  }
+
+  #home h1 {
+    font-size: 2.8rem;
+  }
+}
+
+@media (max-width: 720px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 600px) {
+  .site-header {
+    position: static;
+  }
+
+  .header-inner {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .nav-list {
+    justify-content: center;
+    gap: 0.75rem 1.25rem;
+  }
+
+  #home {
+    min-height: 0;
+    padding: 3rem 0 4rem;
+  }
+
+  #home h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero-name,
+  .tagline {
+    font-size: 1.05rem;
+  }
+
+  .section {
+    padding: 3.5rem 0;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .card-grid,
+  .hobby-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}
